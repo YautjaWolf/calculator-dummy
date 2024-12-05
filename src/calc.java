@@ -26,6 +26,7 @@ public class calc {
         } catch(Exception e) {
             System.out.println("Program failed to finish due to input mismatch exception!");
         }
+        System.exit(0);
     }
 
     public static int calcResult(char operator, int firstNum, int secondNum) {
