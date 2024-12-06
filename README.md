@@ -35,3 +35,5 @@ With the current status, program has no bugs that need addressing.
 # Update 12/4/2024
 ** Although this program was originally supposed to support variables/assignment as well as parentheses operations, I wasn't able to finish it with these features due to external contraints.
 Regardless, the calculator works fine with the four basic arithmetic operators (add., sub., mult., div.).
+
+** Update 12/5/2024 -- made some small modifications on code for simplicicity
