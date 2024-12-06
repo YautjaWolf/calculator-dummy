@@ -9,18 +9,24 @@ To run this, you first got to download main file in the src folder. Afterwards, 
 ## Sample run
 ### Down below is a sample run of this program on a Windows machine. 
 ```
-Choose operator +, -, *, /
+Choose an operator: +, -, *, /
 +
-Enter numbers to be calculated
+Enter two numbers:
 10 10
-20 
+Result: 20
+Program finished.
+
+Process finished with exit code 0
 ```
 ```
-Choose operator +, -, *, /
+Choose an operator: +, -, *, /
 *
-Enter numbers to be calculated
+Enter two numbers:
 20 200
-4000
+Result: 4000
+Program finished.
+
+Process finished with exit code 0
 ```
 
 # Bugs
