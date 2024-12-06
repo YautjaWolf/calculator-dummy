@@ -5,6 +5,7 @@
  * Simple calculator program
  */
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class calc {
@@ -13,19 +14,28 @@ public class calc {
         int firstNum, secondNum;
         int res;
         Scanner userInput = new Scanner(System.in);
-        System.out.println("Choose operator +, -, *, /");
+
+        System.out.println("Choose an operator: +, -, *, /");
         operator = userInput.next().charAt(0);
 
-        System.out.println("Enter numbers to be calculated");
-
+        System.out.println("Enter two numbers:");
         try {
             firstNum = userInput.nextInt();
             secondNum = userInput.nextInt();
+
             res = calcResult(operator, firstNum, secondNum);
-            System.out.println(res);
-        } catch(Exception e) {
-            System.out.println("Program failed to finish due to input mismatch exception!");
+            System.out.println("Result: " + res);
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter integers only!");
+        } catch (ArithmeticException e) {
+            System.out.println("Error during calculation: " + e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            userInput.close();
         }
+
+        System.out.println("Program finished.");
         System.exit(0);
     }
 
@@ -40,7 +50,7 @@ public class calc {
         } else if (operator == '/') {
             res = divide(firstNum, secondNum);
         } else {
-            System.out.println("Cannot calculate. That operand/operation is beyond this calculator's functionality!");
+            throw new IllegalArgumentException("Invalid operator!: " + operator);
         }
         return res;
     }
@@ -56,15 +66,9 @@ public class calc {
     }
 
     public static int divide(int firstnum, int secondnum) {
-        int res = 0;
-        try {
-            res = firstnum / secondnum;
-        } catch(ArithmeticException e) {
-            System.out.println("Answer does not exist! -- / by 0! --");
+        if (secondnum == 0) {
+            throw new ArithmeticException("Division by zero is not allowed!");
         }
-        if (res == 0) {
-            System.out.println("Done!");
-        }
-        return res;
+        return firstnum / secondnum;
     }
 }
